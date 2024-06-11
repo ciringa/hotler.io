@@ -1,0 +1,80 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum permission{
+  ADMIN
+  USER
+}
+
+model User{
+  //informaçoes de registro
+  Id String @id @default(uuid())
+  Email String @unique
+  Password String
+
+  //permissoes especiais
+  Role permission @default(USER)
+
+  //informaçoes de usuario
+  BirthDay DateTime? 
+  Name String
+  Description String?
+
+  NewCheck CheckIn[]
+  NewRating Rating[]
+}
+
+model Hotel{
+  //informaçoes de registro
+  Id String @id @default(uuid())
+
+  //informaçoes de Hotel
+  Name String @unique
+  Phone String?
+  Description String?
+  Rating Float?
+
+  //informaçoes de geolocalizaçoa
+  Latitude Float
+  Longitude Float
+
+  NewCheck CheckIn[]
+  NewRating Rating[]
+}
+
+model CheckIn {
+  Id String @id @default(uuid())
+  
+  UserId String
+  HotelId String
+
+  createdAt DateTime @default(now())
+  validatedAt DateTime?
+  
+  NewUser User @relation(fields: [UserId], references: [Id])
+  NewHotel Hotel @relation(fields: [HotelId], references: [Id])
+
+}
+
+model Rating{
+
+  Id Int @id @default(autoincrement())
+  createdAt DateTime @default(now())
+
+  Value Float 
+  Description String?
+
+  UserId String
+  HotelId String
+
+  NewUser User @relation(fields: [UserId], references: [Id])
+  NewHotel Hotel @relation(fields: [HotelId], references: [Id])
+}
+

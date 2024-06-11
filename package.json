@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "@prisma/client": "^5.15.0",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^20.14.2",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.5",
+    "fastify": "^4.27.0",
+    "prisma": "^5.15.0",
+    "tsx": "^4.15.2",
+    "typescript": "^5.4.5",
+    "vitest": "^1.6.0",
+    "zod": "^3.23.8"
+  },
+  "name": "hotler.io",
+  "version": "1.0.0",
+  "description": "A fullscale api to manage Users CheckIns in hotels",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest run",
+    "test:ui": "vitest --ui",
+    "dev": "tsx watch src/server.ts"
+  },
+  "author": "",
+  "license": "ISC"
+}
