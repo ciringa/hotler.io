@@ -8,7 +8,7 @@ export class inMemoryRatingRepositorie{
     async create(data:Prisma.RatingUncheckedCreateInput){
         const _data = {
             HotelId: String(data.HotelId),
-            UserId: String(data.HotelId),
+            UserId: String(data.UserId),
             Value:data.Value,
             Description:String(data.Description),
             Id:Number(data.Id),
@@ -22,12 +22,21 @@ export class inMemoryRatingRepositorie{
     return returnedOne
   }
 
-  async ReturnByUsers(uid:string){
-    const searchList = this.list.filter(item => item.UserId == uid)
+  async ReturnByUsers(uid:string,Page:number){
+    const searchList = this.list.filter(item => item.UserId == uid).slice((Page-1)*20,Page*20)
     return searchList
   }
-  async ReturnByHotels(hid:string){
-    const searchList = this.list.filter(item => item.HotelId == hid)
+  async ReturnByHotel(hid:string,Page:number){
+    const searchList = this.list.filter(item => item.HotelId == hid).slice((Page-1)*20,Page*20)
     return searchList
+  }
+  async ReturnHotelRating(hid:string){
+    let media = 0
+    const searchList = this.list.filter(item => item.HotelId == hid)
+    searchList.forEach(Element=>{
+      media = media + Element.Value
+    })
+    media = media/searchList.length
+    return media
   }
 }

@@ -20,8 +20,19 @@ export class inMemoryCheckInRepositorie{
     return returnedOne
   }
 
-  async ReturnByUsers(uid:string){
-    const searchList = this.list.filter(item => item.UserId == uid)
-    return searchList
+  async ReturnByUsers(uid:string,Page:number){
+    const searchList = this.list.filter(item => item.UserId == uid).slice((Page-1)*20,Page*20)
+    return {
+      searchList,
+      Amount:searchList.length
+    }
+  }
+  async ValidateCheckIn(CheckIn:string){
+    const searchList = this.list.findIndex(item => item.Id == CheckIn)
+    if(this.list[searchList].validatedAt==null){
+      this.list[searchList].validatedAt == new Date()
+      return this.list[searchList]
+    }
+    return null
   }
 }

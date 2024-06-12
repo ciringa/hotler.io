@@ -9,3 +9,10 @@ export class HotelIdDoesNotExistsError extends Error{
         super("the specified Hotel Id does Not exists")
     }
 }
+
+export class CheckInIdDoesNotExists extends Error{
+    constructor (){
+        super("the specified checkIn Id does not exists")
+    }
+}
+

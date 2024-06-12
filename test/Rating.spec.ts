@@ -1,10 +1,10 @@
 import { Hotel, User } from "@prisma/client";
 import { beforeEach, expect, it } from "vitest";
-import { inMemoryUserRepositorie } from "../repositorie/InMemoryRepositorie.ts/inMemoryUserRepositorie";
-import { inMemoryHotelRepositorie } from "../repositorie/InMemoryRepositorie.ts/inMemoryHotelRepositorie";
-import { inMemoryRatingRepositorie } from "../repositorie/InMemoryRepositorie.ts/inMemoryRatinRepositorie";
-import { RatingUseCase } from "./Rate";
-import { HotelIdDoesNotExistsError, UserIdDoesNotExistsError } from "./Error/NotFoundError";
+import { inMemoryUserRepositorie } from "../src/repositorie/InMemoryRepositorie.ts/inMemoryUserRepositorie";
+import { inMemoryHotelRepositorie } from "../src/repositorie/InMemoryRepositorie.ts/inMemoryHotelRepositorie";
+import { inMemoryRatingRepositorie } from "../src/repositorie/InMemoryRepositorie.ts/inMemoryRatinRepositorie";
+import { RatingUseCase } from "../src/useCases/Rate";
+import { HotelIdDoesNotExistsError, UserIdDoesNotExistsError } from "../src/useCases/Error/NotFoundError";
 
 
 const hotelData = {
