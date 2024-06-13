@@ -1,3 +1,4 @@
+# Hotel API
 Uma aplicação profissional que permite a realização de check-ins em diferentes hotéis de forma simples e pratica.
 
 
@@ -11,18 +12,18 @@ Uma aplicação profissional que permite a realização de check-ins em diferent
 
 ### RF (requisitos funcionais)
 	[ X ] Deve ser possivel se cadastrar
-	[   ] Deve ser possivel Logar-se na aplicação
+	[ X ] Deve ser possivel Logar-se na aplicação
 	[ X ] Deve ser possível fazer Check-ins em hoteis
-	[   ] Deve ser possível Validar o check-in em um hotel 
+	[ X ] Deve ser possível Validar o check-in em um hotel 
 	[ X ] Deve ser possível cadastrar um hotel 
 	[ X ] Deve ser possivel Listar hotéis 
 	[ X ] Deve ser possível listar hotéis por nome
 	[   ] Deve ser possível Listar hotéis por avaliação 
 	[ X ] Deve ser possível agendar check-ins em um hotel 
-	[   ] Deve ser possível listar o historico de checkIns de um usuario 
-	[   ] Deve ser possível receber o numero de checkIns de um usuario 
-	[   ] Deve ser possível listar a lista de checkIns validados de um hotel 
-	[   ] Deve ser possível listar a lista de checkIns não validados de um hotel 
+	[ X ] Deve ser possível listar o historico de checkIns de um usuario 
+	[ X ] Deve ser possível receber o numero de checkIns de um usuario 
+	[ X ] Deve ser possível listar a lista de checkIns validados de um hotel 
+	[ X ] Deve ser possível listar a lista de checkIns não validados de um hotel 
 
 ### RN (Regras de Negócio)
 	[   ] Um usuario só pode realizar um check in em um hotel uma vez por dia
@@ -45,5 +46,7 @@ Uma aplicação profissional que permite a realização de check-ins em diferent
 	[   ] A aplicaçao deve incluir sistema de testagem autonoma do vitest com coverage superior a 85% 
 	[   ] A Aplicaçao deve incluir erros customizados e tratativa de erro
 	[   ] A Aplicaçao deve incluir banco de testes
+	
+	
 	
 	
