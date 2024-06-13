@@ -3,8 +3,8 @@ import { beforeEach, expect, it } from "vitest";
 import { inMemoryUserRepositorie } from "../src/repositorie/InMemoryRepositorie.ts/inMemoryUserRepositorie";
 import { inMemoryHotelRepositorie } from "../src/repositorie/InMemoryRepositorie.ts/inMemoryHotelRepositorie";
 import { inMemoryCheckInRepositorie } from "../src/repositorie/InMemoryRepositorie.ts/inMemoryCheckInRepositorie";
-import { CheckInUseCase } from "../src/useCases/CheckIn";
-import { ValidateCheckInUseCase } from "../src/useCases/CheckInvalidate";
+import { CheckInUseCase } from "../src/Services/CheckIn";
+import { ValidateCheckInUseCase } from "../src/Services/CheckInvalidate";
 
 const hotelData = {
     Name:"teste hotel",
@@ -44,6 +44,5 @@ it("should be able to validate a checkIn",async()=>{
         Id:"TesteCheckIn"
     })
     const valdiatedCheckIn = await sut.execute(createdCheckIn.CreatedCheckIn.Id)
-    
-    expect(valdiatedCheckIn.validateCheckIn.validatedAt).toBeDefined
+    expect(valdiatedCheckIn.validateCheckIn.validatedAt).string
 })

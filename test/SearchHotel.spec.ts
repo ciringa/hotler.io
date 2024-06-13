@@ -1,7 +1,7 @@
 import { Prisma } from "@prisma/client";
 import { it , beforeEach, expect} from "vitest";
 import { inMemoryHotelRepositorie } from "../src/repositorie/InMemoryRepositorie.ts/inMemoryHotelRepositorie";
-import { ReturnHotelListByQueryUseCase } from "../src/useCases/SearchHotel";
+import { ReturnHotelListByQueryUseCase } from "../src/Services/SearchHotel";
 
 const hotelData:Prisma.HotelCreateInput = {
     Name:"teste hotel",

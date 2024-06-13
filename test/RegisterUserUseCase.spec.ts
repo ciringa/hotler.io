@@ -1,8 +1,8 @@
 import {expect, it} from "vitest"
 import { inMemoryUserRepositorie } from "../src/repositorie/InMemoryRepositorie.ts/inMemoryUserRepositorie"
-import { RegisterUserUseCase } from "../src/useCases/RegisterUser"
+import { RegisterUserUseCase } from "../src/Services/RegisterUser"
 import { compare } from "bcryptjs"
-import { EmailAdressAlreadyInUseError } from "../src/useCases/Error/RegisterErrors"
+import { EmailAdressAlreadyInUseError } from "../src/Services/Error/RegisterErrors"
 
 const userCreateData = {
     Email:"testdev@gmail.com",

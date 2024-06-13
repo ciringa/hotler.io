@@ -17,11 +17,14 @@
   "description": "A fullscale api to manage Users CheckIns in hotels",
   "main": "index.js",
   "scripts": {
-    "test:watch":"vitest",
+    "test:watch": "vitest",
     "test": "vitest run",
     "test:ui": "vitest --ui",
     "dev": "tsx watch src/server.ts"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@vitest/ui": "^1.6.0"
+  }
 }

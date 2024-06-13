@@ -1,10 +1,10 @@
 import { beforeEach, expect, it } from "vitest";
 import { Hotel, Prisma, User } from "@prisma/client";
 import { inMemoryRatingRepositorie } from "../src/repositorie/InMemoryRepositorie.ts/inMemoryRatinRepositorie";
-import { ReturnUserRatingsUseCase } from "../src/useCases/ReturnUserRatings";
-import { UserIdDoesNotExistsError } from "../src/useCases/Error/NotFoundError";
+import { ReturnUserRatingsUseCase } from "../src/Services/ReturnUserRatings";
+import { UserIdDoesNotExistsError } from "../src/Services/Error/NotFoundError";
 import { inMemoryHotelRepositorie } from "../src/repositorie/InMemoryRepositorie.ts/inMemoryHotelRepositorie";
-import { ReturnHotelRatingsUseCase } from "../src/useCases/ReturnHotelRatings";
+import { ReturnHotelRatingsUseCase } from "../src/Services/ReturnHotelRatings";
 
 const hotelData:Prisma.HotelCreateInput = {
     Name:"teste hotel",

@@ -1,6 +1,6 @@
 import { Prisma } from "@prisma/client";
 import { expect, it } from "vitest";
-import { HotelRegisterUseCase } from "../src/useCases/HotelRegister";
+import { HotelRegisterUseCase } from "../src/Services/HotelRegister";
 import { inMemoryHotelRepositorie } from "../src/repositorie/InMemoryRepositorie.ts/inMemoryHotelRepositorie";
 
 const hotelData:Prisma.HotelCreateInput = {

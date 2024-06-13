@@ -1,4 +1,5 @@
 import { CheckIn, Prisma, User, permission } from "@prisma/client";
+import { date } from "zod";
 
 
 export class inMemoryCheckInRepositorie{
@@ -27,10 +28,20 @@ export class inMemoryCheckInRepositorie{
       Amount:searchList.length
     }
   }
+
+  async ReturnValidatedByHotel(HotelId:string,Page:number){
+    const searchList = this.list.filter(item => item.HotelId == HotelId && item.validatedAt != null).slice((Page-1)*20,Page*20)
+    // console.log(this.list)
+    return {
+      searchList,
+      Amount:searchList.length
+    }
+  }
+  
   async ValidateCheckIn(CheckIn:string){
     const searchList = this.list.findIndex(item => item.Id == CheckIn)
     if(this.list[searchList].validatedAt==null){
-      this.list[searchList].validatedAt == new Date()
+      this.list[searchList].validatedAt = new Date()
       return this.list[searchList]
     }
     return null

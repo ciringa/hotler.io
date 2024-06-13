@@ -3,8 +3,8 @@ import { beforeEach, expect, it } from "vitest";
 import { inMemoryUserRepositorie } from "../src/repositorie/InMemoryRepositorie.ts/inMemoryUserRepositorie";
 import { inMemoryHotelRepositorie } from "../src/repositorie/InMemoryRepositorie.ts/inMemoryHotelRepositorie";
 import { inMemoryRatingRepositorie } from "../src/repositorie/InMemoryRepositorie.ts/inMemoryRatinRepositorie";
-import { RatingUseCase } from "../src/useCases/Rate";
-import { HotelIdDoesNotExistsError, UserIdDoesNotExistsError } from "../src/useCases/Error/NotFoundError";
+import { RatingUseCase } from "../src/Services/Rate";
+import { HotelIdDoesNotExistsError, UserIdDoesNotExistsError } from "../src/Services/Error/NotFoundError";
 
 
 const hotelData = {

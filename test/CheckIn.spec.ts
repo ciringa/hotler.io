@@ -3,9 +3,9 @@ import { it,beforeEach, expect } from "vitest";
 import { inMemoryUserRepositorie } from "../src/repositorie/InMemoryRepositorie.ts/inMemoryUserRepositorie";
 import { inMemoryHotelRepositorie } from "../src/repositorie/InMemoryRepositorie.ts/inMemoryHotelRepositorie";
 import { CheckIn, Hotel, Prisma, User } from "@prisma/client";
-import { CheckInUseCase } from "../src/useCases/CheckIn";
+import { CheckInUseCase } from "../src/Services/CheckIn";
 import { inMemoryCheckInRepositorie } from "../src/repositorie/InMemoryRepositorie.ts/inMemoryCheckInRepositorie";
-import { HotelIdDoesNotExistsError, UserIdDoesNotExistsError } from "../src/useCases/Error/NotFoundError";
+import { HotelIdDoesNotExistsError, UserIdDoesNotExistsError } from "../src/Services/Error/NotFoundError";
 
 const hotelData = {
     Name:"teste hotel",
