@@ -8,9 +8,8 @@ interface UserAuthenticateRequestPaams{
 }
 
 export class UserAuthenticateUseCase{
-    constructor(private UserRepositorie:any){
-    }
-    async execute({Email,Password}:UserAuthenticateRequestPaams){
+    constructor(private UserRepositorie:any){}
+    async execute({Email,Password}:UserAuthenticateRequestPaams):Promise<string>{
         const doesTheUserExists = await this.UserRepositorie.findByEmail(Email)
         if(!doesTheUserExists){
             throw new UserEmailDoesNotExists()

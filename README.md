@@ -1,13 +1,11 @@
 # Hotel API
 Uma aplicação profissional que permite a realização de check-ins em diferentes hotéis de forma simples e pratica.
-
-
 ## O que eu Aprendi durante este projeto?
 - Aprendi a trabalhar com sistema de Login e Validação complexo
 - Aprendi a trabalhar com tokens JWT 
-
-
-
+- Conceitos de testagem autônoma envolvendo testes E2E 
+- Conceitos de testagem autônoma envolvendo testes Unitários
+- Conceitos de testagem autônoma envolvendo testes de Integração 
 ## requisitos 
 
 ### RF (requisitos funcionais)
@@ -40,13 +38,12 @@ Uma aplicação profissional que permite a realização de check-ins em diferent
 ### RNFs (Requisitos não funcionais )
 
 	[ X ] Os dados da aplicação precisam estar armazenados em um bando de dados portsgresql 
-	[   ] O usuario deve ser identificado por um JWT e suas informaçoes chaves devem ser armazenadas em cookies com seus tokens JWT
+	[ + ] O usuario deve ser identificado por um JWT e suas informaçoes chaves devem ser armazenadas em cookies com seus tokens JWT
 	[   ] A Aplicação deve incluir suporte ao Swagger
 	[ X ] A aplicaçao deve incluir variaveis de ambiente 
 	[   ] A aplicaçao deve incluir sistema de testagem autonoma do vitest com coverage superior a 85% 
-	[   ] A Aplicaçao deve incluir erros customizados e tratativa de erro
+	[ X ] A Aplicaçao deve incluir erros customizados e tratativa de erro
 	[   ] A Aplicaçao deve incluir banco de testes
-	
 	
 	
 	

@@ -1,11 +1,13 @@
 {
   "dependencies": {
+    "@fastify/jwt": "^8.0.1",
     "@prisma/client": "^5.15.0",
     "@types/bcryptjs": "^2.4.6",
     "@types/node": "^20.14.2",
     "bcryptjs": "^2.4.3",
     "dotenv": "^16.4.5",
     "fastify": "^4.27.0",
+    "fastify-type-provider-zod": "^1.2.0",
     "prisma": "^5.15.0",
     "tsx": "^4.15.2",
     "typescript": "^5.4.5",
