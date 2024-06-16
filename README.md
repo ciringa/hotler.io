@@ -6,6 +6,7 @@ Uma aplicação profissional que permite a realização de check-ins em diferent
 - Conceitos de testagem autônoma envolvendo testes E2E 
 - Conceitos de testagem autônoma envolvendo testes Unitários
 - Conceitos de testagem autônoma envolvendo testes de Integração 
+- Entendimentos de conceitos de Validações Geograficas e Temporais 
 ## requisitos 
 
 ### RF (requisitos funcionais)
@@ -44,6 +45,5 @@ Uma aplicação profissional que permite a realização de check-ins em diferent
 	[   ] A aplicaçao deve incluir sistema de testagem autonoma do vitest com coverage superior a 85% 
 	[ X ] A Aplicaçao deve incluir erros customizados e tratativa de erro
 	[   ] A Aplicaçao deve incluir banco de testes
-	
 	
 	

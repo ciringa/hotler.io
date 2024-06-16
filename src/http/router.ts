@@ -2,6 +2,8 @@ import { FastifyInstance } from "fastify";
 import { RegisterUserRoute } from "./controlers/user/RegisterUser";
 import { AuthenticateRoute } from "./controlers/authentication/authRoute";
 import { ReturnProfile } from "./controlers/authentication/profileRoute";
+import { RegisterHotel } from "./controlers/hotel/RegisterHotel";
+
 
 
 export async function Router(app:FastifyInstance) {
@@ -14,5 +16,8 @@ export async function Router(app:FastifyInstance) {
     })
     app.register(ReturnProfile,{
         prefix:"/me"
+    })
+    app.register(RegisterHotel,{
+        prefix:"/hotel"
     })
 }

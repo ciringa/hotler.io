@@ -8,6 +8,8 @@ import { InvalidAuthenticationKeys, UserEmailDoesNotExists } from "../../../Serv
 export async function AuthenticateRoute(app:FastifyInstance) {
     app.withTypeProvider<ZodTypeProvider>().post("/",{
         schema:{
+            tags:["Auth"],
+            description:"Login route. returns the jwt token with the user ID if the Email and Password are valid",
             body:z.object({
                 Password:z.string(),
                 Email:z.string().email()

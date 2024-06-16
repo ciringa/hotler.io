@@ -1,7 +1,7 @@
 import { Hotel, Prisma } from "@prisma/client";
 import { HotelNameIsAlreadyInUse } from "./Error/RegisterErrors";
 
-type HotelRegisterUseCaseRequestParams = Prisma.HotelCreateInput
+type HotelRegisterUseCaseRequestParams = Prisma.HotelUncheckedCreateInput
 interface HotelRegisterUseCaseResponde {
     ReturnObject: Hotel
 }

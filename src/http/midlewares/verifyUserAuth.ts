@@ -1,11 +1,13 @@
 import { FastifyReply, FastifyRequest } from "fastify";
-import { MustBeLoggedError } from "../../Services/Error/CommonErrors";
+import { jwtValidationNotFoundError } from "../errors/JWTValidationNotFoundError";
 
 export async function VerifyJWTAuthentication(req:FastifyRequest, res:FastifyReply){
     const verifyJWTtoken = await req.jwtVerify()
+    console.log("ajksjakjsja")
     if(!verifyJWTtoken){
         res.status(401).send({
-            DEscription:"must be logged to peform the request"
+            Description:"Missing JWT Token"
         })
+        throw new jwtValidationNotFoundError
     }
 }

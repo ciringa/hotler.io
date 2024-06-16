@@ -1,0 +1,51 @@
+import { FastifyInstance } from "fastify";
+import { ZodTypeProvider } from "fastify-type-provider-zod";
+import { z } from "zod";
+import { VerifyJWTAuthentication } from "../../midlewares/verifyUserAuth";
+import { PrismaHotelRepositorie } from "../../../repositorie/PrismaRepositorie/PrismaHotelRepositorie";
+import { HotelRegisterUseCase } from "../../../Services/HotelRegister";
+import { HotelNameIsAlreadyInUse } from "../../../Services/Error/RegisterErrors";
+
+export async function RegisterHotel(app:FastifyInstance) {
+    app.withTypeProvider<ZodTypeProvider>().post("/",{
+        schema:{
+            tags:["Hotel"],
+            description:"Route used to create an hotel. Only possible if the logged user has an admin hole",
+            body:z.object({
+                Name:z.string(),
+                Phone:z.string().optional(),
+                Description:z.string().optional(),
+                Rating:z.number().positive().optional(),
+                Latitude:z.number(),
+                Longitude:z.number(),
+            }),
+            response:{
+                201:z.object({
+                    Description:z.string()
+                }),
+                400:z.object({
+                    Description:z.string()
+                })
+            }
+        }, 
+        preHandler:[VerifyJWTAuthentication]
+    },async (req,res)=>{
+        const data = req.body
+        const repositorie = new PrismaHotelRepositorie()
+        const main = new HotelRegisterUseCase(repositorie)
+
+        try{
+            const CreatedHotel = await main.execute(data)
+            res.status(201).send({
+                Description:"successfully created an hotel"
+            })
+        }catch(err){
+            if(err instanceof HotelNameIsAlreadyInUse){
+                res.status(400).send({
+                    Description:"The specified Hotel Name is already in use. Please provide a new one "
+                })
+            }
+        }
+
+    })
+}
