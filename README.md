@@ -1,5 +1,6 @@
 # Hotel API
 Uma aplicação profissional que permite a realização de check-ins em diferentes hotéis de forma simples e pratica.
+
 ## O que eu Aprendi durante este projeto?
 - Aprendi a trabalhar com sistema de Login e Validação complexo
 - Aprendi a trabalhar com tokens JWT 
@@ -7,6 +8,10 @@ Uma aplicação profissional que permite a realização de check-ins em diferent
 - Conceitos de testagem autônoma envolvendo testes Unitários
 - Conceitos de testagem autônoma envolvendo testes de Integração 
 - Entendimentos de conceitos de Validações Geograficas e Temporais 
+- Entendimento de principios SOLID
+
+
+
 ## requisitos 
 
 ### RF (requisitos funcionais)

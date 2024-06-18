@@ -31,7 +31,6 @@ export async function AuthenticateRoute(app:FastifyInstance) {
         const {Password,Email} = req.body
         const userRepositorie = new PrismaUserRepositorie()
         const Main = new UserAuthenticateUseCase(userRepositorie)
-
         try{
             const returnIdFromValidation = await Main.execute({
                 Email,Password

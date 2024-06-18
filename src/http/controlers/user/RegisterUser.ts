@@ -8,6 +8,8 @@ import { EmailAdressAlreadyInUseError } from "../../../Services/Error/RegisterEr
 export async function RegisterUserRoute(app:FastifyInstance){
     app.withTypeProvider<ZodTypeProvider>().post("/",{
         schema:{
+            tags:["User"],
+            description:"Route used to create users by providing Email, Name and Password",
             body:z.object({
                 Email:z.string().email(),
                 Name:z.string(),
@@ -28,6 +30,5 @@ export async function RegisterUserRoute(app:FastifyInstance){
                 })
             }
         }
-
     })
 }

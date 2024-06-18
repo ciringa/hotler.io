@@ -9,13 +9,13 @@ import z, { string } from "zod";
 
 export async function ReturnProfile(app:FastifyInstance){
     app.addHook("preHandler",async(req,res)=>{
-        console.log("verifying JWT Token ")
         return await VerifyJWTAuthentication(req,res)
     })
     app.withTypeProvider<ZodTypeProvider>().get("/",{
         schema:{
             tags:["Auth"],
             description:"Return the user data by recieving an jwt that contains the specified user id",
+
             response:{
                 200:z.object({
                     Description:z.string(),
@@ -24,7 +24,7 @@ export async function ReturnProfile(app:FastifyInstance){
                         Email: z.string().email(),
                         Password: z.string(),
                         Role:z.enum(["ADMIN","USER"]),
-                        BirthDay:z.date(),
+                        BirthDay:z.date().nullable(),
                         Name:z.string(),
                         Description:z.string().nullable(),
                     })

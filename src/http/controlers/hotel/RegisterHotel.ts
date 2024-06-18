@@ -5,6 +5,8 @@ import { VerifyJWTAuthentication } from "../../midlewares/verifyUserAuth";
 import { PrismaHotelRepositorie } from "../../../repositorie/PrismaRepositorie/PrismaHotelRepositorie";
 import { HotelRegisterUseCase } from "../../../Services/HotelRegister";
 import { HotelNameIsAlreadyInUse } from "../../../Services/Error/RegisterErrors";
+import { returnProfileUseCase } from "../../../Services/returnProfile";
+import { PrismaUserRepositorie } from "../../../repositorie/PrismaRepositorie/PrismaUserRepositorie";
 
 export async function RegisterHotel(app:FastifyInstance) {
     app.withTypeProvider<ZodTypeProvider>().post("/",{
@@ -25,20 +27,32 @@ export async function RegisterHotel(app:FastifyInstance) {
                 }),
                 400:z.object({
                     Description:z.string()
+                }),
+                401:z.object({
+                    Description:z.string()
                 })
             }
         }, 
         preHandler:[VerifyJWTAuthentication]
-    },async (req,res)=>{
+    },async(req,res)=>{
         const data = req.body
+        const loggedId = req.user.sub
         const repositorie = new PrismaHotelRepositorie()
         const main = new HotelRegisterUseCase(repositorie)
+        
+        const checkUserExistence = await new returnProfileUseCase(new PrismaUserRepositorie()).execute(loggedId)
 
         try{
-            const CreatedHotel = await main.execute(data)
-            res.status(201).send({
-                Description:"successfully created an hotel"
-            })
+            if(checkUserExistence.Role == "ADMIN"){            
+                const CreatedHotel = await main.execute(data)
+                res.status(201).send({
+                    Description:"successfully created an hotel"
+                })
+             }else{
+                res.status(401).send({
+                    Description:"Unauthorized. Only users with ADMIN role are able to create hotels"
+                })
+             }
         }catch(err){
             if(err instanceof HotelNameIsAlreadyInUse){
                 res.status(400).send({

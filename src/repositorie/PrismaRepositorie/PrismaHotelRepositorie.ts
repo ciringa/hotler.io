@@ -31,7 +31,7 @@ export class PrismaHotelRepositorie{
     }))
   }
   async searchHotelsByName(Query:string, Page:number){
-    return (await prisma.hotel.findMany({
+    return await prisma.hotel.findMany({
         where:{
             Name:{
                 contains:Query
@@ -39,7 +39,7 @@ export class PrismaHotelRepositorie{
         },
         skip:(Page-1)*20,
         take:Page*20
-    }))
+    })
   }
 
 }

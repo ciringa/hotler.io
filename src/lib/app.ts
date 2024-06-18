@@ -1,21 +1,16 @@
 import fastify from "fastify";
 import { Router } from "../http/router";
 import { jsonSchemaTransform, serializerCompiler, validatorCompiler } from "fastify-type-provider-zod";
-import {fastifyJwt} from "@fastify/jwt";
+import fastifyJwt from "@fastify/jwt";
 import fastifySwagger from "@fastify/swagger";
 import fastifySwaggerUi from "@fastify/swagger-ui";
+import { JWT_SECRET } from "../env/env";
 
 export const app = fastify()
 
 app.setValidatorCompiler(validatorCompiler);
 app.setSerializerCompiler(serializerCompiler);
 
-
-
-
-app.register(fastifyJwt,{
-    secret:'supersecret'
-})
 
 app.register(fastifySwagger,{
     openapi: {
@@ -37,9 +32,11 @@ app.register(fastifySwagger,{
     transform:jsonSchemaTransform
 })
 
-
 app.register(Router)
 
+app.register(fastifyJwt,{
+    secret:JWT_SECRET
+})
 
 app.register(fastifySwaggerUi,{
     routePrefix:"/docs"
