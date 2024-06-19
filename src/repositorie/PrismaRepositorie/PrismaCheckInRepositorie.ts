@@ -61,4 +61,28 @@ export class PrismaCheckInRepositorie{
     })
     return searchList
   }
+
+  async AlreadyDidCheckInToday(UserId:string){
+    const searchList = await prisma.checkIn.findMany({
+      where:{
+          UserId:UserId,
+      },
+    })
+    let today = new Date();
+    // Converter a data de hoje para apenas ano, mês e dia
+    today.setHours(0, 0, 0, 0);
+    
+    for (let element of searchList) {
+      let createdAt = new Date(element.createdAt);
+      
+      // Converter createdAt para apenas ano, mês e dia
+      createdAt.setHours(0, 0, 0, 0);
+      
+      if (createdAt.getTime() === today.getTime()) {
+        return true;
+      }
+    }
+    
+    return false;
+    }
 }

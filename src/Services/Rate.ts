@@ -23,9 +23,7 @@ export class RatingUseCase{
         if(!checkInIfTheHotelExits){
             throw new HotelIdDoesNotExistsError()
         }
-
         const CreatedRating = await this.ratingRepositorie.create(data)
-
         return{
             CreatedRating,
             Description:"successfully Rated The specified Hotel"

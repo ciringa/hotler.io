@@ -30,25 +30,27 @@ Uma aplicação profissional que permite a realização de check-ins em diferent
 	[ X ] Deve ser possível listar a lista de checkIns não validados de um hotel 
 
 ### RN (Regras de Negócio)
-	[   ] Um usuario só pode realizar um check in em um hotel uma vez por dia
-	[   ] Um usuário só pode realizar check in em um hotel a uma distância de 2 km dele 
+	[ X ] Um usuario só pode realizar um check in em um hotel uma vez por dia
+	[ X ] Um usuário só pode realizar check in em um hotel a uma distância de 2 km dele 
 	[   ] Um usuário só pode realizar uma avaliaçao de um hotel se possuir pelomenos um checkIn neste hotel validado
 	[   ] Um usuário só pode realizar checkIn, listar e avaliar hotéis se estiver logado(possuir token JWT ativo) 
 	[   ] Um CheckIn só pode ser validado por um usuário com permissao de adiministrador 
 	[ X ] A Senha do usuário deve estar criptografada 
-	[   ] Um Check-in só pode ser validado no mesmo dia em que foi criado 
+	[ X ] Um Check-in só pode ser validado no mesmo dia em que foi criado 
 	[ X ] O sistema de avaliaçao de hoteis deve consistir em uma lista de avaliaçoes que carregue o ID do usuário que avaliou e a avaliaçao.
 	[ X ] A nota de um hotel deve consistir na média de avaliaçoes deste hotel 
+	[ X ] Um Hotel só pode ser criado por um usuário com privilégio de adiministrador 
 	[ X ] Todos os tipos de listagem devem estar paginados com 20 itens por página 
 
 ### RNFs (Requisitos não funcionais )
 
 	[ X ] Os dados da aplicação precisam estar armazenados em um bando de dados portsgresql 
 	[ + ] O usuario deve ser identificado por um JWT e suas informaçoes chaves devem ser armazenadas em cookies com seus tokens JWT
-	[   ] A Aplicação deve incluir suporte ao Swagger
+	[ X ] A Aplicação deve incluir suporte ao Swagger
 	[ X ] A aplicaçao deve incluir variaveis de ambiente 
 	[   ] A aplicaçao deve incluir sistema de testagem autonoma do vitest com coverage superior a 85% 
 	[ X ] A Aplicaçao deve incluir erros customizados e tratativa de erro
 	[   ] A Aplicaçao deve incluir banco de testes
+	
 	
 	
