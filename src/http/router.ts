@@ -4,6 +4,8 @@ import { AuthenticateRoute } from "./controlers/authentication/authRoute";
 import { ReturnProfile } from "./controlers/authentication/profileRoute";
 import { RegisterHotel } from "./controlers/hotel/RegisterHotel";
 import { SearchHotelByQuery } from "./controlers/hotel/SearchHotel";
+import { RegisterCheckIn } from "./controlers/CheckIns/CheckInRegister";
+import { CheckInValidate } from "./controlers/CheckIns/CheckInValidate";
 
 
 
@@ -23,5 +25,11 @@ export async function Router(app:FastifyInstance) {
     })
     app.register(SearchHotelByQuery,{
         prefix:"/hotel/search"
+    })
+    app.register(RegisterCheckIn,{
+        prefix:"/checkIn"
+    })
+    app.register(CheckInValidate,{
+        prefix:"/checkIn"
     })
 }

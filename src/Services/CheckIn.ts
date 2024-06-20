@@ -20,7 +20,6 @@ interface CheckInUseCaseResponse {
 export class CheckInUseCase{
     constructor(private checkInRepositorie: any, private UserRepositorie:any, private HotelRepositorie:any){
     }
-
         async execute({data,UserLongitude,UserLatitude}:CheckInUseCaseRequestParams): Promise<CheckInUseCaseResponse>{
         const checkIfTheInformedUserExists = await this.UserRepositorie.findById(data.UserId)
         if(!checkIfTheInformedUserExists){
