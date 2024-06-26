@@ -6,6 +6,7 @@ import { RegisterHotel } from "./controlers/hotel/RegisterHotel";
 import { SearchHotelByQuery } from "./controlers/hotel/SearchHotel";
 import { RegisterCheckIn } from "./controlers/CheckIns/CheckInRegister";
 import { CheckInValidate } from "./controlers/CheckIns/CheckInValidate";
+import { HotelValidatedCheckIns } from "./controlers/hotel/ReturnHotelValidatedCheckIn";
 
 
 
@@ -22,6 +23,9 @@ export async function Router(app:FastifyInstance) {
     })
     app.register(RegisterHotel,{
         prefix:"/hotel"
+    })
+    app.register(HotelValidatedCheckIns,{
+        prefix:"/hotel/checkIn"
     })
     app.register(SearchHotelByQuery,{
         prefix:"/hotel/search"
